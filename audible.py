@@ -4,17 +4,17 @@ from nltk import word_tokenize
 
 def condense_tokens(spacy_doc, audible_words, position, offset, spacy_mod):
     spacy_tokens = spacy_mod(audible_words[position+offset[1]].text)
-    if 'ner' in audible_words[i+offset[1]].attrs:
-        spacy_text = ''.join(j.text for j in spacy_doc[i+offset[0]:i+offset[0]+len(spacy_tokens)]) 
-        spacy_tag = ''.join(j.ent_iob_ for j in spacy_doc[i+offset[0]:i+offset[0]+len(spacy_tokens)]) + '-' + \
-        ''.join(j.ent_type_ for j in spacy_doc[i+offset[0]:i+offset[0]+len(spacy_tokens)]) 
-        audible_text = audible_words[i+offset[1]].text 
-        audible_tag = audible_words[i+offset[1]].attrs['ner']
+    if 'ner' in audible_words[position+offset[1]].attrs:
+        spacy_text = ''.join(j.text for j in spacy_doc[position+offset[0]:position+offset[0]+len(spacy_tokens)]) 
+        spacy_tag = ''.join(j.ent_iob_ for j in spacy_doc[position+offset[0]:position+offset[0]+len(spacy_tokens)]) + '-' + \
+        ''.join(j.ent_type_ for j in spacy_doc[position+offset[0]:position+offset[0]+len(spacy_tokens)]) 
+        audible_text = audible_words[position+offset[1]].text 
+        audible_tag = audible_words[position+offset[1]].attrs['ner']
     else:
-        spacy_text = ''.join(j.text for j in spacy_doc[i+offset[0]:i+offset[0]+len(spacy_tokens)])
-        spacy_tag = ''.join(j.ent_iob_ for j in spacy_doc[i+offset[0]:i+offset[0]+len(spacy_tokens)]) + '-' + \
-        ''.join(j.ent_type_ for j in spacy_doc[i+offset[0]:i+offset[0]+len(spacy_tokens)])
-        audible_text = audible_words[i+offset[1]].text 
+        spacy_text = ''.join(j.text for j in spacy_doc[position+offset[0]:position+offset[0]+len(spacy_tokens)])
+        spacy_tag = ''.join(j.ent_iob_ for j in spacy_doc[position+offset[0]:position+offset[0]+len(spacy_tokens)]) + '-' + \
+        ''.join(j.ent_type_ for j in spacy_doc[position+offset[0]:position+offset[0]+len(spacy_tokens)])
+        audible_text = audible_words[position+offset[1]].text 
         audible_tag = 'O-'
     
     offset[0] += len(spacy_tokens)-1
