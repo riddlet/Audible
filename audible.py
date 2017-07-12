@@ -124,13 +124,16 @@ def clean_stanford_tags(tags):
     return(out)
 
 def clean_glample_tags(tags):
-    prog = re.compile('^O+$')
+    prog = re.compile('^O')
     if prog.match(tags):
         out = 'O-'
     else:
         out = tags
-    prog = re.compile('^(B|I)-(P|L|O)$')
+    prog = re.compile('^(B|I)-(P|L|O)')
     if prog.match(out):
         matched = prog.match(out).group(1)+'-'+prog.match(out).group(2)
         out = matched
+    prog = re.compile('^(B|I)-MISC')
+    if prog.match(tags):
+        out = 'O-'
     return(out)
