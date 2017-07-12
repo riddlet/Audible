@@ -1,3 +1,5 @@
 data/*
 .ipynb_checkpoints/*
 tagger-master/*
+audible_files.txt
+*.txt
