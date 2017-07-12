@@ -41,7 +41,7 @@ def clean_spacy_tags(tags):
     return(out)
 
 def clean_audible_tags(item):
-    prog = re.compile('^O$')
+    prog = re.compile('^O-[0-9]+$')
     if prog.match(item):
         out = 'O-'
     else:
