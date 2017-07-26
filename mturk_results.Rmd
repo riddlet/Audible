@@ -182,9 +182,10 @@ table(complete_agreement$aud>0)
 
 Finally, we noted that many of the most frequent disagreements were prefixes or titles. For instance, the table below shows the top 5 most frequently disagreed-upon words., of these, 3 are titles - Dr., Mrs. and Mr. If one system consistently includes these as parts of the name, and the other system does not, that may lead to biases in the estimates of the degree to which each system is doing a good job. As such, we removed the 23 most frequent prefixes and refit the same model that yielded the results above.
 
-```{r table of common worda}
+```{r table1}
 
-knitr::kable(dat %>% group_by(word) %>% summarise(count = n()) %>% arrange(desc(count)) %>% head(., 5))
+knitr::kable(dat %>% group_by(word) %>% summarise(count = n()) %>% arrange(desc(count)) %>% head(., 5),
+             format='latex')
 
 ```
 

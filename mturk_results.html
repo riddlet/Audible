@@ -273,37 +273,9 @@ table(complete_agreement$aud&gt;0)</code></pre>
 ## FALSE  TRUE 
 ##   600   771</code></pre>
 <p>Finally, we noted that many of the most frequent disagreements were prefixes or titles. For instance, the table below shows the top 5 most frequently disagreed-upon words., of these, 3 are titles - Dr., Mrs. and Mr. If one system consistently includes these as parts of the name, and the other system does not, that may lead to biases in the estimates of the degree to which each system is doing a good job. As such, we removed the 23 most frequent prefixes and refit the same model that yielded the results above.</p>
-<pre class="r"><code>knitr::kable(dat %&gt;% group_by(word) %&gt;% summarise(count = n()) %&gt;% arrange(desc(count)) %&gt;% head(., 5))</code></pre>
-<table>
-<thead>
-<tr class="header">
-<th align="left">word</th>
-<th align="right">count</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left">Matisse</td>
-<td align="right">738</td>
-</tr>
-<tr class="even">
-<td align="left">Dr.</td>
-<td align="right">560</td>
-</tr>
-<tr class="odd">
-<td align="left">Mrs.</td>
-<td align="right">548</td>
-</tr>
-<tr class="even">
-<td align="left">Mr.</td>
-<td align="right">470</td>
-</tr>
-<tr class="odd">
-<td align="left">Tim</td>
-<td align="right">470</td>
-</tr>
-</tbody>
-</table>
+<pre class="r"><code>knitr::kable(dat %&gt;% group_by(word) %&gt;% summarise(count = n()) %&gt;% arrange(desc(count)) %&gt;% head(., 5),
+             format='latex')</code></pre>
+
 <pre class="r"><code>prefixes &lt;- c('Dr.', 'Mrs.', 'Mr.', 'Inspector', 'Miss', 'Doctor', 'St.', 'King', 
               'Sergeant', 'Ms.', 'Officer', 'Chief', 'Madame', 'Dr', 'Mr', 'Mrs',
               'General', 'Lord', 'Master', 'the', 'The', 'Sailor', 'Superintendent'
