@@ -92,7 +92,7 @@ questions %>%
 load('output/mturk_mod1.rdata')
 ```
 
-```{r get and plot model predictions}
+```{r plot1}
 
 newdat <- data.frame(system=c('Kindle', 'Stanford'))
 y_hat <- posterior_linpred(mod, newdata = newdat, re.form = NA , transform = T)
@@ -110,7 +110,7 @@ preds %>% gather(system, value) %>%
 
 ```
 
-```{r}
+```{r plot2}
 newdat_ref <- data.frame(expand.grid(system=c('Kindle', 'Stanford'), WorkerId = unique(dat$WorkerId)))
 y_hat_ref <- posterior_linpred(mod, newdata = newdat_ref, re.form=~(system|WorkerId), transform = T)
 ref_preds <- as.data.frame(y_hat_ref)
@@ -189,7 +189,7 @@ knitr::kable(dat %>% group_by(word) %>% summarise(count = n()) %>% arrange(desc(
 ```
 
 
-```{r fit and generate plot for model2}
+```{r plot3}
 prefixes <- c('Dr.', 'Mrs.', 'Mr.', 'Inspector', 'Miss', 'Doctor', 'St.', 'King', 
               'Sergeant', 'Ms.', 'Officer', 'Chief', 'Madame', 'Dr', 'Mr', 'Mrs',
               'General', 'Lord', 'Master', 'the', 'The', 'Sailor', 'Superintendent'
@@ -216,7 +216,7 @@ preds %>% gather(system, value) %>%
 
 ```
 
-```{r worker-level plot for model 2}
+```{r plot4}
 
 newdat_ref <- data.frame(expand.grid(system=c('Kindle', 'Stanford'), WorkerId = unique(dat$WorkerId)))
 y_hat_ref <- posterior_linpred(mod2, newdata = newdat_ref, re.form=~(system|WorkerId), transform = T)

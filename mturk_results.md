@@ -101,7 +101,7 @@ preds %>% gather(system, value) %>%
   xlab('Proportion Correct')
 ```
 
-![](mturk_results_files/figure-html/get and plot model predictions-1.png)<!-- -->
+![](mturk_results_files/figure-html/plot1-1.png)<!-- -->
 
 
 ```r
@@ -146,7 +146,7 @@ ggplot(plot.dat, aes(x=id_num, y=center, color=kindle_pref)) +
   ggtitle('47 of 53 workers tended to prefer Kindle labels')
 ```
 
-![](mturk_results_files/figure-html/unnamed-chunk-1-1.png)<!-- -->
+![](mturk_results_files/figure-html/plot2-1.png)<!-- -->
 
 A second analysis asks about how frequently there is complete agreement. These would be labels that are unambiguously correct for one system. Disagreements that yielded this type of consensus from raters accounted for a little over half the total number of ratings. In these cases, the Kindle system was preferred 56% of the time (771 to 600)
 
@@ -227,7 +227,7 @@ preds %>% gather(system, value) %>%
           'Kindle deemed correct ~41%; Stanford ~44%')
 ```
 
-![](mturk_results_files/figure-html/fit and generate plot for model2-1.png)<!-- -->
+![](mturk_results_files/figure-html/plot3-1.png)<!-- -->
 
 
 ```r
@@ -272,4 +272,4 @@ ggplot(plot.dat, aes(x=id_num, y=center, color=kindle_pref, shape=kindle_pref)) 
   ggtitle('45 of 53 workers tended to prefer Stanford labels')
 ```
 
-![](mturk_results_files/figure-html/worker-level plot for model 2-1.png)<!-- -->
+![](mturk_results_files/figure-html/plot4-1.png)<!-- -->
