@@ -187,25 +187,18 @@ Finally, we noted that many of the most frequent disagreements were prefixes or 
 
 ```r
 knitr::kable(dat %>% group_by(word) %>% summarise(count = n()) %>% arrange(desc(count)) %>% head(., 5),
-             format='latex')
+             format='markdown')
 ```
 
 
-\begin{tabular}{l|r}
-\hline
-word & count\\
-\hline
-Matisse & 738\\
-\hline
-Dr. & 560\\
-\hline
-Mrs. & 548\\
-\hline
-Mr. & 470\\
-\hline
-Tim & 470\\
-\hline
-\end{tabular}
+
+|word    | count|
+|:-------|-----:|
+|Matisse |   738|
+|Dr.     |   560|
+|Mrs.    |   548|
+|Mr.     |   470|
+|Tim     |   470|
 
 
 

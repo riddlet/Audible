@@ -185,7 +185,7 @@ Finally, we noted that many of the most frequent disagreements were prefixes or 
 ```{r table1}
 
 knitr::kable(dat %>% group_by(word) %>% summarise(count = n()) %>% arrange(desc(count)) %>% head(., 5),
-             format='latex')
+             format='markdown')
 
 ```
 
